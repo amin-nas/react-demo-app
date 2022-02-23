@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import Nav from './components/nav'
+import CurrentEarnings from './components/current-earnings'
+import ThisYear from './components/this-year'
+import RecentPays from './components/recent-pays'
+import DirectDeposit from './components/direct-deposit'
+import Documents from './components/documents'
+
+import './styles/app.sass'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className='App'>
+			<Nav />
+			<div className='content-ct'>
+				<h1>Earnings</h1>
+				<div className='content'>
+					<div className='main'>
+						<CurrentEarnings />
+						<ThisYear />
+					</div>
+					<div className='sidebar'>
+						<RecentPays />
+						<DirectDeposit />
+						<Documents />
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 }
 
-export default App;
+export default App

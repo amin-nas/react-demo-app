@@ -1,0 +1,84 @@
+@import _resets
+@import _mixins
+
+
+body
+    font-family: 'Jost', sans-serif
+    background: #F5F7F9;
+
+.App
+	display: flex
+	flex-direction: row
+
+
+h1
+    font-size: 32px
+    margin: 40px 0 20px
+
+h2
+    font-size: 24px
+
+h5
+    font-size: 16px
+    font-weight: 500
+    color: #808080
+
+a
+    text-decoration: underline
+
+.nav
+    width: 240px
+    height: 100vh
+    background: #211F1F
+
+.content-ct
+    padding: 0 60px
+    width: 100%
+
+
+.content
+    display: flex
+    gap: 40px
+
+.main
+    flex: 1 1 calc((100% - 360px) * .67)
+    display: flex
+    flex-direction: column
+    gap: 24px
+
+.sidebar
+    font-size: 14px
+    flex: 1 1 calc((100%  - 360px) * .33)
+    max-width: 320px
+    display: flex
+    flex-direction: column
+    gap: 40px
+
+    h5
+        padding-bottom: 8px
+        border-bottom: 1px solid #D3D3D3
+
+    &__row
+        display: flex
+        justify-content: space-between
+        padding: 12px 0
+        border-bottom: 1px solid #D3D3D3
+
+        span:first-child
+            min-width: 120px
+
+
+// components
+
+@import current-earnings
+@import this-year
+
+.recent-pays
+    a
+        display: block
+        margin-top: 12px
+
+.direct-deposit
+    a
+        display: block
+        margin-top: 12px
