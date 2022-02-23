@@ -7,10 +7,21 @@ export const currentEarnings = {
 }
 
 export const thisYear = {
-    "grossPay": 19782.5,
+    "grossPay": {
+        "total": 19782.5,
+        "regular": 14280.1,
+        "holiday": 749.4,
+        "signOnBonus": 4753
+    },
     "retirement": 989.12,
     "benefits": 791.3,
-    "taxes": 5638.01,
+    "taxes": {
+        "total": 5638.01,
+        "federal": 3672.5,
+        "medicare": 355.9,
+        "state": 780.13,
+        "city": 829.48,
+    },
     "takeHome": 12364.06
 }
 

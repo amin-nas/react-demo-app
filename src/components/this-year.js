@@ -13,7 +13,7 @@ HighchartsMore(Highcharts)
 const chartOptions = {
     chart: {
       type: 'packedbubble',
-      width: 400,
+      width: 300,
       height: 300,
     },
     credits: {
@@ -24,8 +24,8 @@ const chartOptions = {
     },
     plotOptions: {
         packedbubble: {
-            minSize: '20%',
-            maxSize: '100%',
+            minSize: '40',
+            maxSize: '140%',
             layoutAlgorithm: {
                 splitSeries: false,
                 gravitationalConstant: 0.02
@@ -51,7 +51,7 @@ const chartOptions = {
             showInLegend: false, 
             data: [
                 { name: 'Take home', value: thisYear.takeHome, color: '#8AC5A8'},
-                { name: 'Taxes', value: thisYear.taxes, color: '#DBD4B7'},
+                { name: 'Taxes', value: thisYear.taxes.total, color: '#DBD4B7'},
                 { name: 'Benefits', value: thisYear.benefits, color: '#FFE7B9'},
                 { name: 'Retirement', value: thisYear.retirement, color: '#AAD6DE'}
             ]
@@ -67,17 +67,57 @@ export default function ThisYear  () {
             <div className='this-year__content'>
                 <div>
                     <div className='this-year__data-row'>
-                        <span>Gross Pay</span>
-                        <span>{numberFormat(thisYear.grossPay)}</span>
+                        <span>Gross pay</span>
+                        <span>{numberFormat(thisYear.grossPay.total)}</span>
                     </div>
+                    <div className='this-year__data-row'>
+                        <span className="small">Regular</span>
+                        <span className="small">{numberFormat(thisYear.grossPay.regular)}</span>
+                    </div>
+                    <div className='this-year__data-row'>
+                        <span className="small">Holiday</span>
+                        <span className="small">{numberFormat(thisYear.grossPay.holiday)}</span>
+                    </div>
+                    <div className='this-year__data-row'>
+                        <span className="small">Sign on bonus</span>
+                        <span className="small">{numberFormat(thisYear.grossPay.signOnBonus)}</span>
+                    </div>
+                    <hr />
+                    <div className='this-year__data-row'>
+                        <span>Pre-tax deductions</span>
+                        <span>{numberFormat(thisYear.retirement + thisYear.benefits)}</span>
+                    </div>
+                    <div className='this-year__data-row'>
+                        <span className="small">Retirement</span>
+                        <span className="small">{numberFormat(thisYear.retirement)}</span>
+                    </div>
+                    <div className='this-year__data-row'>
+                        <span className="small">Benefits</span>
+                        <span className="small">{numberFormat(thisYear.benefits)}</span>
+                    </div>
+                    <hr />
                     <div className='this-year__data-row'>
                         <span>Taxes</span>
-                        <span>{numberFormat(thisYear.taxes)}</span>
+                        <span>{numberFormat(thisYear.taxes.total)}</span>
                     </div>
                     <div className='this-year__data-row'>
-                        <span>Benefits</span>
-                        <span>{numberFormat(thisYear.benefits)}</span>
+                        <span className="small">Federal</span>
+                        <span className="small">{numberFormat(thisYear.taxes.federal)}</span>
                     </div>
+                    <div className='this-year__data-row'>
+                        <span className="small">Medicare</span>
+                        <span className="small">{numberFormat(thisYear.taxes.medicare)}</span>
+                    </div>
+                    <div className='this-year__data-row'>
+                        <span className="small">State</span>
+                        <span className="small">{numberFormat(thisYear.taxes.state)}</span>
+                    </div>
+                    <div className='this-year__data-row'>
+                        <span className="small">City</span>
+                        <span className="small">{numberFormat(thisYear.taxes.city)}</span>
+                    </div>
+                    <hr />
+                    <hr />
                     <div className='this-year__data-row'>
                         <span>Take Home</span>
                         <span>{numberFormat(thisYear.takeHome)}</span>

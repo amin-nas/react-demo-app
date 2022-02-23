@@ -59,15 +59,15 @@ export default function CurrentEarnings  () {
                             <span>{numberFormat(currentEarnings.grossPay)}</span>
                         </div>
                         <div>
-                            <span>Retirement</span>
+                            <span className='legend retirement'>Retirement</span>
                             <span>{numberFormat(currentEarnings.retirement)}</span>
                         </div>
                         <div>
-                            <span>Benefits</span>
+                            <span className='legend benefits'>Benefits</span>
                             <span>{numberFormat(currentEarnings.benefits)}</span>
                         </div>
                         <div>
-                            <span>Taxes</span>
+                            <span className='legend taxes'>Taxes</span>
                             <span>{numberFormat(currentEarnings.taxes)}</span>
                         </div>
                     </div>
