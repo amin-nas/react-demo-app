@@ -32,16 +32,15 @@ const chartOptions = {
             },
             dataLabels: {
                 enabled: true,
-                format: '{point.name}',
-                filter: {
-                    property: 'y',
-                    operator: '>',
-                    value: 250
+                align: 'left',
+                formatter: function() {
+                    return `<span style="font-weight:500;font-size:11px;">${this.point.name}</span><br/>${((100 * this.point.value) / thisYear.grossPay.total).toFixed(1)}%`
                 },
                 style: {
-                    color: 'black',
+                    color: '#808080',
                     textOutline: 'none',
-                    fontWeight: 'normal'
+                    fontFamily: 'Jost',
+                    textAnchor: 'middle'
                 }
             }
         }
